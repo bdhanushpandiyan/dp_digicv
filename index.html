@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanush Pandiyan Balakrishnan | DP_DigiCV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#adc6ff",
+                        "secondary": "#44e2cd",
+                        "tertiary-fixed": "#e0e3e5",
+                        "surface-container-highest": "#2d3449",
+                        "outline": "#8c909f",
+                        "outline-variant": "#424753",
+                        "inverse-primary": "#005ac1",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "secondary-fixed-dim": "#3cddc7",
+                        "on-surface-variant": "#c2c6d5",
+                        "inverse-surface": "#dae2fd",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#060e20",
+                        "surface": "#0b1326",
+                        "on-primary-container": "#00285c",
+                        "on-secondary-fixed": "#00201c",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-primary-fixed": "#001a41",
+                        "on-tertiary-container": "#272a2c",
+                        "on-surface": "#dae2fd",
+                        "on-secondary-container": "#004d44",
+                        "primary": "#adc6ff",
+                        "primary-fixed": "#d8e2ff",
+                        "tertiary-container": "#8e9193",
+                        "tertiary": "#c4c7c9",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#62fae3",
+                        "surface-container": "#171f33",
+                        "on-primary-fixed-variant": "#004494",
+                        "inverse-on-surface": "#283044",
+                        "background": "#0b1326",
+                        "surface-variant": "#2d3449",
+                        "surface-container-high": "#222a3d",
+                        "surface-bright": "#31394d",
+                        "on-tertiary": "#2d3133",
+                        "surface-dim": "#0b1326",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-secondary": "#003731",
+                        "on-background": "#dae2fd",
+                        "secondary-container": "#03c6b2",
+                        "on-primary": "#002e69",
+                        "on-secondary-fixed-variant": "#005047"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin": "64px",
+                        "gutter": "32px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            --secondary-glow: rgba(68, 226, 205, 0.15);
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(23, 31, 51, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+        }
+        .glass-card:hover {
+            border-color: rgba(68, 226, 205, 0.3);
+            background: rgba(23, 31, 51, 0.5);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px var(--secondary-glow);
+        }
+        .bioluminescent-glow {
+            filter: drop-shadow(0 0 8px rgba(68, 226, 205, 0.4));
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(68, 226, 205, 0.3)); }
+            50% { filter: drop-shadow(0 0 15px rgba(68, 226, 205, 0.6)); }
+        }
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 20s infinite alternate;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(10vw, 10vh); }
+        }
+        .stagger-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #44e2cd;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .progress-bar {
+            height: 2px;
+            background: rgba(68, 226, 205, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #44e2cd;
+            transform: translateX(-100%);
+            transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        .glass-card:hover .progress-fill {
+            transform: translateX(0);
+        }
+        .depth-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body class="dark bg-background text-on-background selection:bg-secondary/30">
+
+    <div class="floating-bg">
+        <div class="orb bg-secondary w-96 h-96 top-1/4 -left-20"></div>
+        <div class="orb bg-primary w-[500px] h-[500px] bottom-1/4 -right-20" style="animation-delay: -5s;"></div>
+        <div class="orb bg-surface-container-highest w-80 h-80 top-1/2 left-1/2" style="animation-delay: -10s;"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-[100] px-6 py-8">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center px-8 py-3 bg-surface/40 backdrop-blur-2xl rounded-full border border-outline-variant/10 shadow-2xl transition-all duration-300">
+            <div class="font-headline-md text-xl font-bold tracking-tighter flex items-center gap-2 group cursor-pointer" onclick="playPulseSound()">
+                <span class="w-2 h-2 rounded-full bg-secondary bioluminescent-glow"></span>
+                <span class="text-primary group-hover:text-secondary transition-colors">DP_DigiCV</span>
+            </div>
+            <div class="hidden md:flex gap-10">
+                <a href="#portfolio" class="nav-link relative font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-all" onclick="playPulseSound()">Portfolio</a>
+                <a href="#research" class="nav-link relative font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-all" onclick="playPulseSound()">Research</a>
+                <a href="#methodology" class="nav-link relative font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-all" onclick="playPulseSound()">Methodology</a>
+                <a href="#contact" class="nav-link relative font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-all" onclick="playPulseSound()">Contact</a>
+            </div>
+            <a href="#contact" class="bg-secondary/10 hover:bg-secondary text-secondary hover:text-on-secondary px-6 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest transition-all duration-300 border border-secondary/20 active:scale-95 inline-block" onclick="playBioResonanceSound()">
+                Connect
+            </a>
+        </nav>
+    </header>
+
+    <main class="relative z-10">
+        <section class="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
+            <div class="relative group" onclick="playBioResonanceSound()">
+                <div class="absolute inset-0 bg-secondary rounded-full blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity duration-1000"></div>
+                <div class="relative z-10 p-1 rounded-full bg-gradient-to-tr from-secondary/40 to-transparent">
+                    <img src="assets/profile.png" alt="Dhanush Pandiyan Balakrishnan" class="w-56 h-56 md:w-80 md:h-80 rounded-full object-cover object-top bg-surface grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer">
+                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-secondary/10 rounded-full animate-[spin_20s_linear_infinite] pointer-events-none"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-primary/5 rounded-full animate-[spin_30s_linear_infinite_reverse] pointer-events-none"></div>
+            </div>
+
+            <div class="mt-12 text-center max-w-4xl">
+                <h1 class="font-headline-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 tracking-tighter text-on-surface whitespace-nowrap">Dhanush Pandiyan Balakrishnan</h1>
+                <h2 class="font-headline-md text-headline-md text-secondary mb-6 font-light">Researcher</h2>
+                
+                <div class="flex flex-wrap justify-center gap-4 text-outline font-body-lg">
+                    <span class="px-4 py-1 rounded-full border border-outline-variant/30 text-sm">Molecular Techniques</span>
+                    <span class="px-4 py-1 rounded-full border border-outline-variant/30 text-sm">Bioprocess Engineering</span>
+                    <span class="px-4 py-1 rounded-full border border-outline-variant/30 text-sm">Machine Learning</span>
+                    <span class="px-4 py-1 rounded-full border border-outline-variant/30 text-sm">Bioinformatics</span>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+                <div class="w-px h-24 bg-gradient-to-b from-secondary to-transparent"></div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="max-w-container-max mx-auto px-margin py-32">
+            <div class="stagger-grid">
+                <div class="col-span-12 lg:col-span-7 mb-12 lg:mb-0">
+                    <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.3em] mb-6 block bioluminescent-glow">Executive Summary</span>
+                    <h3 class="font-headline-xl text-5xl md:text-6xl mb-12 leading-tight">Bridging Molecular Biology with Computational Precision</h3>
+                    
+                    <div class="font-body-lg text-on-surface-variant space-y-8 max-w-2xl">
+                        <p class="leading-relaxed border-l-2 border-secondary/20 pl-8">Multidisciplinary researcher completing an MSc in Biotechnology at the Sri Ramachandra Institute of Higher Education and Research. Expertise encompasses advanced microbiology, molecular diagnostics (PCR, SDS-PAGE), and applying machine learning via Julia for bioinformatics.</p>
+                        <p class="leading-relaxed border-l-2 border-primary/20 pl-8 opacity-80">Proven track record in complex research, including breast cancer microbiome profiling and predictive viral strain modeling. Dedicated to integrating wet-lab methodologies with data-driven insights to drive innovative bioprocessing and disease diagnostics.</p>
+                    </div>
+                </div>
+
+                <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4 lg:pt-24">
+                    <div class="glass-card p-10 rounded-[2rem] depth-shadow flex flex-col justify-between h-64 lg:mt-12" onclick="playPulseSound()">
+                        <div class="text-secondary font-headline-md text-4xl mb-1">SRIHER</div>
+                        <div class="text-label-sm uppercase font-label-sm tracking-widest text-outline">APPLIED RESEARCH</div>
+                    </div>
+                    <div class="glass-card p-10 rounded-[2rem] depth-shadow flex flex-col justify-between h-64" onclick="playPulseSound()">
+                        <div class="text-primary font-headline-md text-4xl mb-1">MSc</div>
+                        <div class="text-label-sm uppercase font-label-sm tracking-widest text-outline">BIOTECHNOLOGY</div>
+                    </div>
+                    <div class="glass-card p-10 rounded-[2rem] depth-shadow flex flex-col justify-between h-64 lg:-mt-12" onclick="playPulseSound()">
+                        <div class="text-secondary-fixed font-headline-md text-4xl mb-1">Yukti</div>
+                        <div class="text-label-sm uppercase font-label-sm tracking-widest text-outline">NATIONAL INNOVATOR</div>
+                    </div>
+                    <div class="glass-card p-10 rounded-[2rem] depth-shadow flex flex-col justify-between h-64" onclick="playPulseSound()">
+                        <div class="text-primary-fixed font-headline-md text-4xl mb-1">AI/ML</div>
+                        <div class="text-label-sm uppercase font-label-sm tracking-widest text-outline">BIO-INTEGRATION</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 relative overflow-hidden">
+            <div class="absolute inset-0 bg-surface-container-low/50 -skew-y-3 origin-right"></div>
+            
+            <div class="max-w-container-max mx-auto px-margin relative z-10">
+                <div class="mb-24">
+                    <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.3em]">Timeline</span>
+                    <h2 class="font-headline-md text-6xl mt-4">Professional Evolution</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    <div class="glass-card p-10 rounded-3xl border-l-4 border-l-secondary relative overflow-hidden group h-full flex flex-col" onclick="playBioResonanceSound()">
+                        <div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 transition-colors"></div>
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="text-4xl font-headline-xl text-outline/20">01</span>
+                            <time class="font-label-sm text-secondary px-4 py-1 border border-secondary/20 rounded-full">2024 - 2026</time>
+                        </div>
+                        <div class="mb-6 flex-1">
+                            <span class="text-xs text-outline px-2 py-0.5 bg-surface-container rounded-full uppercase tracking-tighter mb-2 inline-block">Master's Degree</span>
+                            <h4 class="font-headline-md text-2xl font-bold">MSc Biotechnology</h4>
+                            <p class="text-primary font-body-md mt-1">Sri Ramachandra Institute of Higher Education and Research (SRIHER)</p>
+                            <p class="text-outline font-body-md border-t border-outline-variant/10 pt-6 mt-6">Investigated the role of the <i>Bacteroides fragilis</i> (<i>susD</i> gene) in breast cancer-associated microbiome profiles and developed supervised machine learning models in Julia for viral strain prediction. Maintained an 8.54 CGPA.</p>
+                        </div>
+                        <div class="mt-4 progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                    </div>
+
+                    <div class="glass-card p-10 rounded-3xl border-l-4 border-l-primary relative overflow-hidden group lg:mt-12 h-full flex flex-col" onclick="playBioResonanceSound()">
+                        <div class="absolute -right-8 -top-8 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="text-4xl font-headline-xl text-outline/20">02</span>
+                            <time class="font-label-sm text-primary px-4 py-1 border border-primary/20 rounded-full">2024</time>
+                        </div>
+                        <div class="mb-6 flex-1">
+                            <span class="text-xs text-outline px-2 py-0.5 bg-surface-container rounded-full uppercase tracking-tighter mb-2 inline-block">R&D Fellow</span>
+                            <h4 class="font-headline-md text-2xl font-bold">Research & Development Fellow</h4>
+                            <p class="text-secondary font-body-md mt-1">MakerGhat Foundation Incubation Program</p>
+                            <p class="text-outline font-body-md border-t border-outline-variant/10 pt-6 mt-6">Designed and optimized prototypes of instant fermentation-based probiotic products, successfully scaling the process from laboratory to pilot scale during a 6-month incubation.</p>
+                        </div>
+                        <div class="mt-4 progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                    </div>
+
+                    <div class="glass-card p-10 rounded-3xl border-l-4 border-l-secondary-fixed relative overflow-hidden group lg:mt-24 h-full flex flex-col" onclick="playBioResonanceSound()">
+                        <div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary-fixed/5 rounded-full blur-2xl group-hover:bg-secondary-fixed/10 transition-colors"></div>
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="text-4xl font-headline-xl text-outline/20">03</span>
+                            <time class="font-label-sm text-secondary-fixed px-4 py-1 border border-secondary-fixed/20 rounded-full">2021 - 2024</time>
+                        </div>
+                        <div class="mb-6 flex-1">
+                            <span class="text-xs text-outline px-2 py-0.5 bg-surface-container rounded-full uppercase tracking-tighter mb-2 inline-block">Bachelor's Degree</span>
+                            <h4 class="font-headline-md text-2xl font-bold">BSc Botany</h4>
+                            <p class="text-primary-fixed font-body-md mt-1">Thiagarajar College (Autonomous)</p>
+                            <p class="text-outline font-body-md border-t border-outline-variant/10 pt-6 mt-6">Graduated with a 9.06 CGPA (Third Rank Holder). Won the TC Yukti 2024 Innovation Contest for developing an instant ferment probiotic product. Recognized with the Academic Excellence Award.</p>
+                        </div>
+                        <div class="mt-4 progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="methodology" class="max-w-container-max mx-auto px-margin py-32">
+            <div class="mb-24">
+                <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.3em]">Expertise Map</span>
+                <h2 class="font-headline-md text-6xl mt-4">Technical Proficiency</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-8 rounded-[2rem] group h-full flex flex-col" onclick="playPulseSound()">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-secondary text-3xl">magnification_small</span>
+                    </div>
+                    <h4 class="font-headline-md text-2xl mb-6">Microbiology</h4>
+                    <ul class="text-outline text-sm space-y-3 flex-1">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-secondary/50"></div> Microbial Culture & Isolation</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-secondary/50"></div> Aseptic & Staining Techniques</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-secondary/50"></div> Biosafety & Lab Operations</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-[2rem] group h-full flex flex-col md:mt-12" onclick="playPulseSound()">
+                    <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">Dna</span>
+                    </div>
+                    <h4 class="font-headline-md text-2xl mb-6">Molecular Biology</h4>
+                    <ul class="text-outline text-sm space-y-3 flex-1">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary/50"></div> PCR & Gel Electrophoresis (AGE)</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary/50"></div> DNA/RNA Extraction</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary/50"></div> SDS-PAGE & RFLP Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-[2rem] group h-full flex flex-col" onclick="playPulseSound()">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary-fixed/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-secondary-fixed text-3xl">precision_manufacturing</span>
+                    </div>
+                    <h4 class="font-headline-md text-2xl mb-6">Bioprocess Engineering</h4>
+                    <ul class="text-outline text-sm space-y-3 flex-1">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-secondary-fixed/50"></div> Fermentation Probiotics</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-secondary-fixed/50"></div> Prototype Design</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-secondary-fixed/50"></div> Lab to Pilot Scale Up</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-[2rem] group h-full flex flex-col lg:mt-12" onclick="playPulseSound()">
+                    <div class="w-14 h-14 rounded-2xl bg-primary-fixed/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary-fixed text-3xl">computer</span>
+                    </div>
+                    <h4 class="font-headline-md text-2xl mb-6">Computational Bio</h4>
+                    <ul class="text-outline text-sm space-y-3 flex-1">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary-fixed/50"></div> Julia Programming</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary-fixed/50"></div> Machine Learning Models</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary-fixed/50"></div> Molecular Docking</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-[2rem] group h-full flex flex-col" onclick="playPulseSound()">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-secondary text-3xl">monitoring</span>
+                    </div>
+                    <h4 class="font-headline-md text-2xl mb-6">Diagnostics & Cell Bio</h4>
+                    <ul class="text-outline text-sm space-y-3 flex-1">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-secondary/50"></div> Mammalian Cell Culture</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-secondary/50"></div> ELISA & Immunoassays</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-secondary/50"></div> Sample Preparation</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-[2rem] group h-full flex flex-col lg:mt-12" onclick="playPulseSound()">
+                    <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-primary text-3xl">hub</span>
+                    </div>
+                    <h4 class="font-headline-md text-2xl mb-6">Microbiome Research</h4>
+                    <ul class="text-outline text-sm space-y-3 flex-1">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary/50"></div> Tumor & Oral Wash Profiling</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary/50"></div> <i>Bacteroides fragilis</i> (<i>susD</i>) Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="py-32">
+            <div class="max-w-container-max mx-auto px-margin">
+                <div class="mb-24 text-center">
+                    <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.3em]">Select Research</span>
+                    <h2 class="font-headline-md text-6xl mt-4">Pioneering Bio-Computational Projects</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <div class="md:col-span-8 group relative overflow-hidden rounded-[2.5rem] h-[500px] cursor-pointer" onclick="playBioResonanceSound()">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8CrdmPMh0lXm2buhmLYPW184n9hPsswKT4dkomJ5vmWYGs5d5oxqyOq_DD1H7I1Zcx7N_2H850Z_VgewqiXMk8ms3TJphMsQkg7U18he71F5RGNdKx6NbcstIPvd3T1WQPTXwQwXJOd5wBzJaD4Zw3Io0RtxGuFm7ar0BifbEtcWdgM92sTel_wzK18XSKAM7pPk4ryhxSFQja41EXT4m-18MAbcbdHMrfKusJI-m36y-vkkFW5B3zgX802y8NwjFqYOZVAhMLByG" alt="Tumor Microbiome Profiling" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-12 w-full">
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-[10px] font-label-sm uppercase bg-secondary/20 text-secondary border border-secondary/30 px-3 py-1 rounded-full">CLINICAL RESEARCH</span>
+                                <span class="text-[10px] font-label-sm uppercase bg-secondary/20 text-secondary border border-secondary/30 px-3 py-1 rounded-full">METAGENOMICS</span>
+                            </div>
+                            <h4 class="font-headline-md text-4xl mb-4">Tumor Microbiome Profiling</h4>
+                            <p class="text-outline max-w-xl">Investigated the role of <i>Bacteroides fragilis</i> (<i>susD</i> gene) in breast cancer-associated microbiome profiles utilizing tumor and oral wash samples.</p>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-4 group relative overflow-hidden rounded-[2.5rem] h-[500px] cursor-pointer" onclick="playBioResonanceSound()">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIV5pSmM2MJtPdsFc_1a425ZuowWiRtgqSU_ErXqsZcUkQ31fo2gqgsoUGUxDLGYQpcFAtEf45xHzbwTq5LfzZCZJ7EXFfy3286GNLP5yCP8uc7ZFTGKWck-GksPcNo2nSfPlgl8X6DceXrIt6A5jvBId4t3B38Z5ZVVIPw_Go3ti9PDCfhbZs48ZJT-7Jf7b9dCg_PpquVw3kNnpmkKxn1ek1zWIkpO7uaJxv8KE9WAc7DipOw5UXqQUm07ecVYpiXLv-X_L4PX8G" alt="Viral Strain Prediction" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-10 w-full">
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="text-[10px] font-label-sm uppercase bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full">MACHINE LEARNING</span>
+                                <span class="text-[10px] font-label-sm uppercase bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full">JULIA</span>
+                            </div>
+                            <h4 class="font-headline-md text-2xl mb-4 leading-tight">Viral Strain Prediction</h4>
+                            <p class="text-outline text-sm">Developed a supervised machine learning model using physicochemical features of spike proteins for the epidemiological profiling of various viruses.</p>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-12 group relative overflow-hidden rounded-[2.5rem] h-[400px] cursor-pointer" onclick="playBioResonanceSound()">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx0fmQlVr5n4J9bFdbO39wTcjxnxeL-nlGK6iMGn4d1tC_fOBsCLvlJ8b99yKHKxT1vrwVpqDZlbDJvJf-kNXQa1NT9MoTWxnwUyp9VaCu-4vuu8uxh9-OegZzoPHkyL8AfqVmMzYoneoUjy_V2_cLqfG97bAzIMGeVU8rd_ULFi0oOJjQt2kAoY1vosMUVvUzvLj8Rozses5K78GhLfHW9LYbuMDy0n3ab6zKnLfD0xxKSoBTyldD0UrarL0CcqkvIA_9dgjaJe2S" alt="Probiotic Fermentation Scaling" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+                        <div class="absolute inset-0 bg-gradient-to-r from-surface to-transparent opacity-95"></div>
+                        <div class="absolute inset-0 flex flex-col justify-center p-12 max-w-2xl">
+                            <div class="flex gap-2 mb-6">
+                                <span class="text-[10px] font-label-sm uppercase bg-secondary-fixed/20 text-secondary-fixed border border-secondary-fixed/30 px-4 py-1 rounded-full">BIO-ENGINEERING</span>
+                                <span class="text-[10px] font-label-sm uppercase bg-secondary-fixed/20 text-secondary-fixed border border-secondary-fixed/30 px-4 py-1 rounded-full">YUKTI WINNER</span>
+                            </div>
+                            <h4 class="font-headline-md text-4xl mb-6">Probiotic Fermentation Scaling</h4>
+                            <p class="text-outline font-body-md">Designed and optimized instant fermentation-based probiotic prototypes, successfully scaling the process from laboratory to pilot production.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-container-max mx-auto px-margin py-32">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="flex flex-col justify-center mb-8 md:mb-0">
+                    <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.3em] mb-4">Distinctions</span>
+                    <h2 class="font-headline-md text-4xl">Honors & Certifications</h2>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl text-center border-b-4 border-b-secondary group" onclick="playBioResonanceSound()">
+                    <span class="material-symbols-outlined text-secondary text-5xl mb-6 group-hover:rotate-12 transition-transform">workspace_premium</span>
+                    <h5 class="font-label-sm text-on-surface uppercase mb-2 tracking-widest leading-relaxed">NPTEL Elite Scholar</h5>
+                    <p class="text-xs text-outline mt-1">Food Microbiology (IIT Kharagpur)</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl text-center border-b-4 border-b-primary group md:mt-12" onclick="playBioResonanceSound()">
+                    <span class="material-symbols-outlined text-primary text-5xl mb-6 group-hover:-rotate-12 transition-transform">emoji_events</span>
+                    <h5 class="font-label-sm text-on-surface uppercase mb-2 tracking-widest leading-relaxed">Yukti 2024 Winner</h5>
+                    <p class="text-xs text-outline mt-1">National Innovation Contest</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl text-center border-b-4 border-b-secondary group md:mt-24" onclick="playBioResonanceSound()">
+                    <span class="material-symbols-outlined text-secondary text-5xl mb-6 group-hover:scale-110 transition-transform">record_voice_over</span>
+                    <h5 class="font-label-sm text-on-surface uppercase mb-2 tracking-widest leading-relaxed">SRM Conference</h5>
+                    <p class="text-xs text-outline mt-1">Oral Presenter</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-32 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-margin">
+                <div class="glass-card rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden depth-shadow" onclick="playBioResonanceSound()">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
+                    
+                    <h2 class="font-headline-md text-5xl md:text-6xl mb-8 leading-tight">Let's Synthesize Something Great</h2>
+                    <p class="font-body-lg text-outline mb-16 max-w-xl mx-auto">Open for research collaborations, PhD opportunities, and innovative R&D roles.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-16">
+                        <a href="mailto:b.dhanushpandiyan@gmail.com" class="flex items-center gap-4 bg-surface/50 p-6 rounded-2xl hover:bg-secondary/10 hover:border-secondary/20 border border-transparent transition-all group overflow-hidden" onclick="event.stopPropagation(); playPulseSound();">
+                            <div class="w-12 h-12 rounded-xl bg-secondary/10 flex-shrink-0 flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <div class="text-left min-w-0">
+                                <div class="text-xs uppercase text-outline tracking-widest">Email Me</div>
+                                <div class="font-body-md text-sm group-hover:text-secondary transition-colors truncate">b.dhanushpandiyan@gmail.com</div>
+                            </div>
+                        </a>
+                        
+                        <div class="flex items-center gap-4 bg-surface/50 p-6 rounded-2xl border border-transparent" onclick="event.stopPropagation(); playPulseSound();">
+                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex-shrink-0 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <div class="text-left min-w-0">
+                                <div class="text-xs uppercase text-outline tracking-widest">Based In</div>
+                                <div class="font-body-md text-sm truncate">Madurai, Tamil Nadu, India</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center gap-8">
+                        <a href="https://linkedin.com/in/dhanushpandiyanb" target="_blank" rel="noopener noreferrer" class="w-14 h-14 flex items-center justify-center rounded-full bg-surface border border-outline-variant/30 hover:border-secondary hover:text-secondary transition-all hover:scale-110" onclick="event.stopPropagation(); playPulseSound();">
+                            <span class="material-symbols-outlined">link</span>
+                        </a>
+                        <a href="#" class="w-14 h-14 flex items-center justify-center rounded-full bg-surface border border-outline-variant/30 hover:border-secondary hover:text-secondary transition-all hover:scale-110" onclick="event.stopPropagation(); playPulseSound();">
+                            <span class="material-symbols-outlined">share</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t border-outline-variant/5 bg-surface-container-lowest/30 backdrop-blur-md">
+        <div class="max-w-container-max mx-auto px-margin flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-headline-md text-xl font-bold text-primary tracking-tighter">DP_DigiCV</div>
+            
+            <div class="font-label-sm text-[10px] text-outline/60 tracking-[0.2em] uppercase text-center md:text-right">
+                © 2026 Dhanush Pandiyan Balakrishnan.<br class="block md:hidden"> All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize safe browser Web Audio Context on-demand (avoids browser policy restrictions)
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        // Sound Profile 1: The "Data Pulse" (Technical/Computational Card Click)
+        function playPulseSound() {
+            initAudio();
+            if (!audioCtx) return;
+
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            osc.type = 'triangle'; // Clean, rounded geometric wave style
+            osc.frequency.setValueAtTime(880, audioCtx.currentTime); // High crisp pitch (A5 note)
+            osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.12); // Sweeps down fast
+
+            gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime); // Subtle volume profile
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.13);
+        }
+
+        // Sound Profile 2: The "Bioluminescent Resonance" (Organic Deep Node Wave)
+        function playBioResonanceSound() {
+            initAudio();
+            if (!audioCtx) return;
+
+            const osc = audioCtx.createOscillator();
+            const filter = audioCtx.createBiquadFilter();
+            const gainNode = audioCtx.createGain();
+
+            osc.type = 'sine'; // Pure organic wave structure
+            osc.frequency.setValueAtTime(180, audioCtx.currentTime); // Low fundamental frequency
+            osc.frequency.linearRampToValueAtTime(220, audioCtx.currentTime + 0.35); // Gentle upward slide
+
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(400, audioCtx.currentTime);
+
+            gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime); // Soft presence profile
+            gainNode.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
+
+            osc.connect(filter);
+            filter.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.42);
+        }
+
+        // Simple scroll reveal effect
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Sticky header background transition
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('py-2', 'bg-surface/80');
+                nav.classList.remove('py-3', 'bg-surface/40');
+            } else {
+                nav.classList.add('py-3', 'bg-surface/40');
+                nav.classList.remove('py-2', 'bg-surface/80');
+            }
+        });
+    </script>
+</body>
+</html>
