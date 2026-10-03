@@ -87,8 +87,9 @@ export const profile = {
     summary: {
       text: 'MSc Biotechnology (SRIHER, 2024–2026) · BSc Botany (Thiagarajar College, 2021–2024) · Research Assistant, Periyar University (from August 2026).',
     },
-    // The CV PDF has not been supplied. When it is, put it in /public/cv/ and set
-    // the path here, e.g. '/cv/Dhanush-Pandiyan-B-CV.pdf'. The button enables itself.
+    // The CV PDF has not been supplied. When it is, put it in public/cv/ and set the
+    // path here, e.g. 'cv/Dhanush-Pandiyan-B-CV.pdf' (or a full https:// URL). The
+    // button then becomes "Download CV" by itself.
     pdfUrl: null,
     // Optional hosted/online version of the CV.
     viewUrl: null,

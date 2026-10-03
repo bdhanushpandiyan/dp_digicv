@@ -4,6 +4,11 @@ import Button from '../ui/Button.jsx';
 import PlaceholderBadge from '../ui/PlaceholderBadge.jsx';
 import './CV.css';
 
+const isAbsoluteUrl = (url) => /^https?:\/\//i.test(url);
+// Same-site paths are resolved against the site's base so they work from any sub-path.
+const resolveUrl = (url) =>
+  isAbsoluteUrl(url) ? url : `${import.meta.env.BASE_URL}${url.replace(/^\/+/, '')}`;
+
 export default function CV() {
   const { summary, pdfUrl, viewUrl } = profile.cv;
 
@@ -20,8 +25,16 @@ export default function CV() {
 
         <div className="cv__actions">
           {pdfUrl ? (
-            <Button href={pdfUrl} variant="primary" icon="download" download>
-              Download CV (PDF)
+            <Button
+              href={resolveUrl(pdfUrl)}
+              variant="primary"
+              icon="download"
+              // Absolute URLs open safely in a new tab; same-site files download.
+              {...(isAbsoluteUrl(pdfUrl)
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : { download: true })}
+            >
+              Download CV<span className="sr-only"> (PDF)</span>
             </Button>
           ) : (
             <Button variant="primary" icon="download" disabled aria-describedby="cv-note">

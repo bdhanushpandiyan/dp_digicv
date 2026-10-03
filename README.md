@@ -40,6 +40,12 @@ All CV content lives in `src/data/` and is separate from the UI components:
 
 Content is taken only from the supplied CV. Missing information is left as an explicit placeholder: entries marked `placeholder: true` render with a "Placeholder" tag. Replace the text and delete the flag, or set `site.showPlaceholderMarkers` to `false` in `profile.js` to hide every tag at once.
 
+## 🌐 Production URL, SEO and CV
+
+* The production domain is not hard-coded. Set `SITE_URL` (env var or `.env` file) at build time to emit the canonical URL, Open Graph / Twitter image URLs, `sitemap.xml` and the `Sitemap:` line in `robots.txt`, e.g. `SITE_URL=https://example.com/ npm run build`. Without it those tags are omitted; title, description, theme colour, Open Graph/Twitter text and JSON-LD (Person) are always generated from `src/data/profile.js` by the plugin in `vite.config.js`.
+* CV: put the PDF in `public/cv/` and set `cv.pdfUrl` in `profile.js` (e.g. `cv/Dhanush-Pandiyan-B-CV.pdf`, or a full `https://` URL). The disabled button then becomes "Download CV".
+* Dead-code and migration notes for removing the legacy implementation: `docs/legacy-cleanup-report.md`.
+
 ## 🧑‍🔬 Character frames
 
 Production frames in `public/character/` are 1280×720 WebP built from the originals in `source-assets/character-1920/` by `scripts/build-character-frames.sh`, which also removes the sparkle watermark from the background.

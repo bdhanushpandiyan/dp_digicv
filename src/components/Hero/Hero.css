@@ -131,6 +131,13 @@
 }
 
 @media (max-width: 479px) {
+  /* Equal-width, full-width buttons when stacked on phones. */
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    align-self: stretch;
+  }
+
   .hero__text .eyebrow {
     gap: 10px;
     font-size: 0.6875rem;
@@ -209,5 +216,30 @@
 
   .hero__caption {
     top: 22px;
+  }
+}
+
+/* ~1024px: text column is narrow. Keep the eyebrow on one line, give the stacked
+   buttons one shared width, and trim padding so less empty red sits above the head. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero__text {
+    padding-block: 40px;
+  }
+
+  .hero__text .eyebrow {
+    gap: 10px;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero__text .eyebrow::before {
+    width: 20px;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: min(100%, 250px);
+    margin-top: 28px;
   }
 }
