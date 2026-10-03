@@ -1,13 +1,15 @@
 // -----------------------------------------------------------------------------
 // Profile & site-level content.
 //
+// Source of truth: the CV supplied by the site owner. Only facts stated there are
+// used. Anything missing is left as an explicit placeholder rather than guessed.
+//
 // Edit this file (and the other files in src/data) to update the site. Nothing in
 // src/components contains CV content.
 //
 // Entries flagged `placeholder: true` are structural stand-ins. They render with a
-// "Placeholder" marker and a dashed outline. Replace the text, delete the flag,
-// and the marker disappears. Set `site.showPlaceholderMarkers` to false to hide
-// every marker at once.
+// "Placeholder" marker. Replace the text, delete the flag, and the marker
+// disappears. Set `site.showPlaceholderMarkers` to false to hide every marker.
 // -----------------------------------------------------------------------------
 
 export const site = {
@@ -15,63 +17,78 @@ export const site = {
 };
 
 export const profile = {
-  name: { given: 'Dhanush', middle: 'Pandiyan', family: 'Balakrishnan' },
-  title: 'Researcher',
-  eyebrow: 'Biotechnology Research Portfolio',
-
-  // PLACEHOLDER: positioning statement is not final. Needs your approval.
+  name: {
+    full: 'Dhanush Pandiyan B',
+    // The hero headline is set on these lines.
+    lines: ['Dhanush', 'Pandiyan B'],
+  },
+  title: 'Biotechnology Researcher',
+  eyebrow: 'Research • Biotechnology • Innovation',
   positioning: {
-    text: 'Microbiology, metabolomics, postbiotics and computational biology.',
-    placeholder: true,
+    text: 'Microbiology · Metabolomics · Postbiotics · Computational Biology',
   },
 
   hero: {
-    primaryCta: { label: 'View research', href: '#research' },
+    primaryCta: { label: 'Explore research', href: '#research' },
     secondaryCta: { label: 'Curriculum vitae', href: '#cv' },
   },
 
-  location: 'Madurai, Tamil Nadu, India',
+  location: 'Tamil Nadu, India',
 
   contact: {
     email: 'b.dhanushpandiyan@gmail.com',
-    linkedin: 'https://linkedin.com/in/dhanushpandiyanb',
-    github: null, // e.g. 'https://github.com/<username>'
-    other: [], // e.g. [{ label: 'ORCID', href: 'https://orcid.org/...' }]
-    intro: {
-      text: 'Placeholder: a short line inviting collaboration or enquiries.',
-      placeholder: true,
+    phone: { display: '+91 95977 16483', tel: '+919597716483' },
+    linkedin: {
+      display: 'linkedin.com/in/dhanushpandiyanb',
+      href: 'https://linkedin.com/in/dhanushpandiyanb',
     },
+    // Not supplied. Add only verified URLs, e.g. { label: 'GitHub', href: '...' }.
+    other: [],
   },
 
   about: {
     lead: {
-      text: 'Placeholder: one or two sentences introducing your research focus and approach.',
-      placeholder: true,
+      text: 'Biotechnology researcher with research interests in microbiology, metabolomics, postbiotics and computational biology.',
     },
     paragraphs: [
       {
-        text: 'Placeholder: background paragraph. Education path, research interests and what drives the work.',
-        placeholder: true,
+        text: 'Project work includes microbiome research on tumor and oral wash from breast cancer patients, and a machine learning model, developed using Julia, to predict coronavirus strains from spike protein physicochemical properties.',
       },
       {
-        text: 'Placeholder: second paragraph. Current focus, methods you work with, and what you are looking for next.',
-        placeholder: true,
+        text: 'Laboratory experience includes microbial isolation and identification, probiotic product development and fermentation-based prototyping from laboratory to pilot scale. From August 2026, Research Assistant on a CMRG, DoT project at the Department of Microbiology, Periyar University, Salem, on postbiotics from the kernels of Mangifera indica and Syzygium cumini (full title under Experience).',
       },
     ],
     facts: [
-      { label: 'Location', value: 'Madurai, Tamil Nadu, India' },
-      { label: 'Education', value: 'Placeholder: degree, institution', placeholder: true },
-      { label: 'Affiliation', value: 'Placeholder: current affiliation', placeholder: true },
-      { label: 'Currently', value: 'Placeholder: current role or focus', placeholder: true },
+      { label: 'Location', value: 'Tamil Nadu, India' },
+      {
+        label: 'Current role',
+        value: 'Research Assistant, Department of Microbiology, Periyar University, Salem (from August 2026)',
+      },
     ],
   },
 
+  education: [
+    {
+      degree: 'MSc Biotechnology',
+      institution: 'Sri Ramachandra Institute of Higher Education and Research, Chennai',
+      period: '2024–2026',
+      cgpa: '8.61',
+    },
+    {
+      degree: 'BSc Botany',
+      institution: 'Thiagarajar College (Autonomous), Madurai',
+      period: '2021–2024',
+      cgpa: '9.06',
+      note: 'Third Rank Holder',
+    },
+  ],
+
   cv: {
     summary: {
-      text: 'Placeholder: a short professional summary that sits beside the downloadable CV.',
-      placeholder: true,
+      text: 'MSc Biotechnology (SRIHER, 2024–2026) · BSc Botany (Thiagarajar College, 2021–2024) · Research Assistant, Periyar University (from August 2026).',
     },
-    // Put the PDF in /public/cv/ and reference it here, e.g. '/cv/Dhanush-Pandiyan-CV.pdf'.
+    // The CV PDF has not been supplied. When it is, put it in /public/cv/ and set
+    // the path here, e.g. '/cv/Dhanush-Pandiyan-B-CV.pdf'. The button enables itself.
     pdfUrl: null,
     // Optional hosted/online version of the CV.
     viewUrl: null,
@@ -92,7 +109,13 @@ export const navItems = [
 // Section headings. `intro` is optional.
 export const sections = {
   about: { number: '01', title: 'About' },
-  research: { number: '02', title: 'Research' },
+  research: {
+    number: '02',
+    title: 'Research',
+    intro: {
+      text: 'Areas of research interest, grouped from the projects, training and skills listed in the CV.',
+    },
+  },
   projects: { number: '03', title: 'Projects' },
   experience: { number: '04', title: 'Experience' },
   publications: { number: '05', title: 'Publications & Presentations' },

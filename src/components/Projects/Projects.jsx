@@ -11,7 +11,11 @@ const areaTitles = Object.fromEntries(researchAreas.map((a) => [a.id, a.title]))
 export default function Projects() {
   const [area, setArea] = useState('all');
   const visible = area === 'all' ? projects : projects.filter((p) => p.areaId === area);
-  const filters = [{ id: 'all', title: 'All' }, ...researchAreas];
+  // Only offer areas that have at least one project.
+  const filters = [
+    { id: 'all', title: 'All' },
+    ...researchAreas.filter((a) => projects.some((p) => p.areaId === a.id)),
+  ];
 
   return (
     <Section id="projects" meta={sections.projects}>

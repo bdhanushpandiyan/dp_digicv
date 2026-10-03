@@ -1,7 +1,6 @@
 import { profile } from '../../data/profile.js';
 import CursorCharacter from '../CursorCharacter/CursorCharacter.jsx';
 import Button from '../ui/Button.jsx';
-import PlaceholderBadge from '../ui/PlaceholderBadge.jsx';
 import './Hero.css';
 
 const debugCharacter = new URLSearchParams(window.location.search).has('debug');
@@ -15,15 +14,18 @@ export default function Hero() {
         <p className="eyebrow hero__enter">{eyebrow}</p>
 
         <h1 id="hero-title" className="hero__name hero__enter">
-          <span>{name.given}</span> <span>{name.middle}</span> <span>{name.family}</span>
+          {name.lines.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
         </h1>
 
         <p className="hero__title hero__enter">{title}</p>
 
-        <p className="hero__statement hero__enter">
-          {positioning.text}
-          {positioning.placeholder && <PlaceholderBadge />}
-        </p>
+        <ul className="hero__statement hero__enter">
+          {positioning.text.split(' · ').map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
 
         <div className="hero__actions hero__enter">
           <Button href={hero.primaryCta.href} variant="primary" icon="arrow-right">
@@ -40,7 +42,7 @@ export default function Hero() {
       <div className="hero__stage">
         <CursorCharacter
           debug={debugCharacter}
-          alt={`Interactive portrait of ${name.given} ${name.middle} ${name.family}. The head turns to follow your cursor.`}
+          alt={`Interactive portrait of ${name.full}. The head turns to follow your cursor.`}
         />
         <p className="hero__caption" aria-hidden="true">
           Move your cursor

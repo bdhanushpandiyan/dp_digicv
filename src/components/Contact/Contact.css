@@ -3,16 +3,11 @@
   gap: clamp(40px, 6vw, 72px);
 }
 
-.contact__intro {
-  max-width: 44ch;
-  margin-bottom: 32px;
-  font-size: var(--fs-lead);
-  color: var(--text-muted);
-}
-
 .contact__email {
   display: inline-grid;
   gap: 8px;
+  align-self: end;
+  justify-self: start;
   max-width: 100%;
 }
 
@@ -35,16 +30,16 @@
   border-color: var(--accent);
 }
 
-.contact__links {
+.contact__rows {
   align-self: end;
   border-top: 1px solid var(--line);
 }
 
-.contact__links li {
+.contact__rows li {
   border-bottom: 1px solid var(--line);
 }
 
-.contact__links a {
+.contact__rows a {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -53,8 +48,15 @@
   transition: color 0.2s var(--ease);
 }
 
-.contact__links a:hover {
+.contact__rows a:hover {
   color: var(--accent);
+}
+
+.contact__row-text {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .contact__location {

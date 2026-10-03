@@ -23,7 +23,7 @@ import {
  */
 export default function CursorCharacter({
   config = characterConfig,
-  alt = 'Portrait of Dhanush Pandiyan Balakrishnan',
+  alt = 'Portrait whose head turns to follow the cursor',
   className = '',
   debug = false,
 }) {

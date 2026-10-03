@@ -99,9 +99,22 @@
   margin: 0;
 }
 
-.project__outcome {
+.project__fact {
   color: var(--text);
   font-size: var(--fs-small);
+}
+
+.project__status {
+  margin-top: -4px;
+}
+
+.tag--status {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .project__link {

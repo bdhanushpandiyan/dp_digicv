@@ -114,10 +114,32 @@
 }
 
 .hero__statement {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 0;
   max-width: 44ch;
   margin-top: 20px;
   color: var(--text-muted);
   font-size: 1.0625rem;
+}
+
+/* Middot separators between the research areas; they sit at line ends when wrapped. */
+.hero__statement li:not(:last-child)::after {
+  content: '·';
+  margin-inline: 0.55em;
+  color: var(--accent);
+}
+
+@media (max-width: 479px) {
+  .hero__text .eyebrow {
+    gap: 10px;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero__text .eyebrow::before {
+    width: 18px;
+  }
 }
 
 .hero__actions {

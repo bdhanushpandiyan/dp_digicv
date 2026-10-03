@@ -1,48 +1,50 @@
-// Projects. The three entries below are structural placeholders only (see
-// profile.js for how placeholders work). Replace them with real projects.
+// Projects, as listed in the CV. Titles are verbatim. Do not add methods, findings
+// or outcomes that the CV does not state.
 //
-// Shape:
+// Shape (all optional except id, title, areaId):
 // {
-//   id, title, description,
-//   areaId,        // one of the ids in research.js
-//   methods: [],   // lab / analytical methods
-//   technologies: [], // software, tools, languages
-//   outcome,       // result or status
-//   link: { label, href } | null, // optional publication / repository link
-//   placeholder: true // remove when real
+//   id, title,
+//   description,   // string, or { text, placeholder: true } when not yet supplied
+//   areaId,        // one of the ids in research.js (drives the filter)
+//   areaLabel,     // shown on the card instead of the area title
+//   status,        // e.g. 'Manuscript'
+//   supervisor, institution,
+//   methods: [], technologies: [],
+//   outcome,
+//   link: { label, href } | null
 // }
 export const projects = [
   {
-    id: 'project-placeholder-1',
-    title: 'Project title placeholder',
-    description: 'Placeholder: two or three sentences describing the question, approach and context.',
-    areaId: 'postbiotics',
-    methods: ['Method placeholder'],
-    technologies: ['Technology placeholder'],
-    outcome: 'Placeholder: outcome or current status.',
-    link: null,
-    placeholder: true,
-  },
-  {
-    id: 'project-placeholder-2',
-    title: 'Project title placeholder',
-    description: 'Placeholder: two or three sentences describing the question, approach and context.',
+    id: 'breast-cancer-microbiome',
+    title: 'Microbiome research on tumor and oral wash from breast cancer patients',
+    description:
+      'Investigating microbial virulence genes associated with breast cancer microbiome signatures.',
     areaId: 'microbiology',
-    methods: ['Method placeholder'],
-    technologies: ['Technology placeholder'],
-    outcome: 'Placeholder: outcome or current status.',
-    link: null,
-    placeholder: true,
+    areaLabel: 'Microbiology / Microbiome',
+    supervisor: 'Dr Benedict Christopher Paul',
+    institution: 'SRIHER, Chennai, Tamil Nadu',
   },
   {
-    id: 'project-placeholder-3',
-    title: 'Project title placeholder',
-    description: 'Placeholder: two or three sentences describing the question, approach and context.',
+    id: 'ml-viral-strain-prediction',
+    title: 'Machine Learning for Viral Strain Prediction',
+    description:
+      'Developed a machine learning model using Julia to predict coronavirus strains based on spike protein physicochemical properties.',
     areaId: 'computational',
-    methods: ['Method placeholder'],
-    technologies: ['Technology placeholder'],
-    outcome: 'Placeholder: outcome or current status.',
-    link: null,
-    placeholder: true,
+    areaLabel: 'Computational Biology / Machine Learning',
+    status: 'Manuscript',
+    supervisor: 'Dr Benedict Christopher Paul',
+    institution: 'SRIHER, Chennai, Tamil Nadu',
+    methods: ['Machine learning'],
+    technologies: ['Julia'],
+  },
+  {
+    id: 'instant-ferment-probiotic-yukti',
+    title: 'Instant Ferment Probiotic Product Development (Yukti)',
+    // The CV text supplied for this project has no description.
+    description: { text: 'Project description to be added.', placeholder: true },
+    areaId: 'microbiology',
+    areaLabel: 'Microbiology / Probiotic Product Development',
+    supervisor: 'Dr M. Rama Prabha',
+    institution: 'Thiagarajar College, Madurai, Tamil Nadu',
   },
 ];

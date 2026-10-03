@@ -1,35 +1,40 @@
-// Publications and presentations, newest first. The entries below are structural
-// placeholders.
+// Publications, manuscript and presentations, as listed in the CV.
 //
-// Shape:
-// {
-//   id, type,     // e.g. 'Journal article', 'Poster', 'Oral presentation'
-//   title, authors, venue, year,
-//   doi,          // optional, e.g. '10.1000/xyz123' (rendered as https://doi.org/...)
-//   url,          // optional, used when there is no DOI
-//   placeholder: true // remove when real
-// }
-export const publications = [
+// The CV supplies no journal publication list, so the Publications group is empty
+// and shows its note. The viral strain prediction work is a MANUSCRIPT, not a
+// published paper. Do not add authors, journals, DOIs or years that the CV does not
+// state; absent fields are simply not shown.
+//
+// Entry shape (all optional except id and title):
+// { id, title, type, status, authors, venue, year, doi, url }
+export const publicationGroups = [
   {
-    id: 'publication-placeholder-1',
-    type: 'Journal article',
-    title: 'Publication title placeholder',
-    authors: 'Author placeholder',
-    venue: 'Journal placeholder',
-    year: 'Year',
-    doi: null,
-    url: null,
-    placeholder: true,
+    id: 'publications',
+    heading: 'Publications',
+    emptyNote: 'No verified publication entries supplied in current CV.',
+    entries: [],
   },
   {
-    id: 'publication-placeholder-2',
-    type: 'Presentation',
-    title: 'Presentation title placeholder',
-    authors: 'Author placeholder',
-    venue: 'Conference placeholder',
-    year: 'Year',
-    doi: null,
-    url: null,
-    placeholder: true,
+    id: 'manuscript',
+    heading: 'Manuscript',
+    entries: [
+      {
+        id: 'ml-viral-strain-prediction',
+        title: 'Machine Learning for Viral Strain Prediction',
+        status: 'Manuscript',
+      },
+    ],
+  },
+  {
+    id: 'presentations',
+    heading: 'Presentations',
+    entries: [
+      {
+        id: 'srm-icecb',
+        title: 'International Conference on Emerging Concepts in Biotechnology',
+        type: 'Oral Presentation',
+        venue: 'SRM University',
+      },
+    ],
   },
 ];

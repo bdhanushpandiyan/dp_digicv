@@ -1,44 +1,43 @@
 import { profile, sections } from '../../data/profile.js';
 import Section from '../Section/Section.jsx';
 import Icon from '../ui/Icon.jsx';
-import PlaceholderBadge from '../ui/PlaceholderBadge.jsx';
 import './Contact.css';
 
 export default function Contact() {
-  const { email, linkedin, github, other, intro } = profile.contact;
+  const { email, phone, linkedin, other } = profile.contact;
 
-  // Only links that have been supplied are rendered.
-  const links = [
-    linkedin && { label: 'LinkedIn', href: linkedin },
-    github && { label: 'GitHub', href: github },
-    ...other,
+  // Only details supplied in the CV are rendered.
+  const rows = [
+    phone && { label: 'Phone', value: phone.display, href: `tel:${phone.tel}`, external: false },
+    linkedin && { label: 'LinkedIn', value: linkedin.display, href: linkedin.href, external: true },
+    ...other.map((o) => ({ label: o.label, value: o.label, href: o.href, external: true })),
   ].filter(Boolean);
 
   return (
     <Section id="contact" meta={sections.contact} tone="raised">
       <div className="contact">
-        <div>
-          <p className="contact__intro">
-            {intro.text}
-            {intro.placeholder && <PlaceholderBadge />}
-          </p>
-          <a className="contact__email" href={`mailto:${email}`}>
-            <span className="label">Email</span>
-            <span className="contact__address">{email}</span>
-          </a>
-        </div>
+        <a className="contact__email" href={`mailto:${email}`}>
+          <span className="label">Email</span>
+          <span className="contact__address">{email}</span>
+        </a>
 
-        <ul className="contact__links" aria-label="Professional links">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} target="_blank" rel="noopener noreferrer">
-                <span>{link.label}</span>
-                <Icon name="arrow-up-right" size={18} />
+        <ul className="contact__rows">
+          {rows.map((row) => (
+            <li key={row.label}>
+              <a
+                href={row.href}
+                {...(row.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                <span className="contact__row-text">
+                  <span className="label">{row.label}</span>
+                  <span>{row.value}</span>
+                </span>
+                {row.external && <Icon name="arrow-up-right" size={18} />}
               </a>
             </li>
           ))}
           <li className="contact__location">
-            <span className="label">Based in</span>
+            <span className="label">Location</span>
             <span>{profile.location}</span>
           </li>
         </ul>

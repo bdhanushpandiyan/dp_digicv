@@ -34,10 +34,15 @@ All CV content lives in `src/data/` and is separate from the UI components:
 | `research.js` | research areas |
 | `projects.js` | project cards |
 | `experience.js` | experience timeline |
-| `publications.js` | publications and presentations |
+| `achievements.js` | achievements list (shown under Experience) |
+| `publications.js` | publications, manuscript and presentations |
 | `skills.js` | skill categories |
 
-Entries marked `placeholder: true` render with a "Placeholder" tag and dashed outline. Replace the text and delete the flag, or set `site.showPlaceholderMarkers` to `false` in `profile.js` to hide every tag at once.
+Content is taken only from the supplied CV. Missing information is left as an explicit placeholder: entries marked `placeholder: true` render with a "Placeholder" tag. Replace the text and delete the flag, or set `site.showPlaceholderMarkers` to `false` in `profile.js` to hide every tag at once.
+
+## 🧑‍🔬 Character frames
+
+Production frames in `public/character/` are 1280×720 WebP built from the originals in `source-assets/character-1920/` by `scripts/build-character-frames.sh`, which also removes the sparkle watermark from the background.
 
 ## 🗂️ Legacy
 

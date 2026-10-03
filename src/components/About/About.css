@@ -48,3 +48,69 @@
     column-gap: clamp(48px, 8vw, 120px);
   }
 }
+
+/* Education: editorial list under the profile. */
+.education {
+  margin-top: clamp(48px, 7vw, 88px);
+}
+
+.education__heading {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.education__item {
+  display: grid;
+  gap: 8px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.education__period {
+  color: var(--accent);
+}
+
+.site .education__degree {
+  font-size: var(--fs-h3);
+}
+
+.education__institution {
+  margin-top: 4px;
+  color: var(--text-muted);
+}
+
+.education__note {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 3px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  color: var(--text);
+}
+
+.education__cgpa {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.education__cgpa span:last-child {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .education__item {
+    grid-template-columns: 140px minmax(0, 1fr) auto;
+    column-gap: 32px;
+    align-items: start;
+  }
+
+  .education__cgpa {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+}

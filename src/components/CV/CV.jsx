@@ -25,7 +25,7 @@ export default function CV() {
             </Button>
           ) : (
             <Button variant="primary" icon="download" disabled aria-describedby="cv-note">
-              Download CV (PDF)
+              CV PDF unavailable
             </Button>
           )}
           {viewUrl && (
@@ -35,7 +35,7 @@ export default function CV() {
           )}
           {!pdfUrl && (
             <p id="cv-note" className="cv__note">
-              PDF not added yet. Set <code>cv.pdfUrl</code> in <code>src/data/profile.js</code>.
+              The CV PDF has not been added yet.
             </p>
           )}
         </div>

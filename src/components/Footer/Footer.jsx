@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__inner">
         <p className="footer__copy">
-          © {new Date().getFullYear()} {name.given} {name.middle} {name.family}. All Rights Reserved.
+          © {new Date().getFullYear()} {name.full}. All Rights Reserved.
         </p>
         <a className="footer__top" href="#home">
           Back to top
