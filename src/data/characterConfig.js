@@ -5,8 +5,9 @@ export const characterConfig = {
   centerSrc: `${BASE}character/center.webp`,
   frameSrc: (i) => `${BASE}character/frames/frame-${String(i).padStart(3, '0')}.webp`,
 
-  // Source frames are 1920x1080; the canvas keeps this aspect ratio.
-  aspectRatio: 1920 / 1080,
+  // Production frames are 1280x720; the canvas keeps this exact 16:9 aspect ratio.
+  sourceWidth: 1280,
+  aspectRatio: 1280 / 720,
 
   // Face centre inside the image, normalised 0..1 (x from left, y from top).
   faceCenter: { x: 0.5, y: 0.44 },
@@ -28,6 +29,11 @@ export const characterConfig = {
   // displayed frame changes (prevents flicker on a boundary).
   frameHysteresis: 0.2,
 
-  // Cap on the canvas backing-store width in device pixels (source is 1920).
-  maxBackingWidth: 1920,
+  // Cap on the canvas backing-store width in device pixels. Drawing more pixels
+  // than the source contains only costs fill-rate, so it matches the frames.
+  maxBackingWidth: 1280,
 };
+
+// Dominant background red of the frames, sampled from their left/right edges.
+// The test hero uses it so the frame's red continues seamlessly into the page.
+export const characterRed = '#B92523';

@@ -61,23 +61,39 @@ export default function CursorCharacter({
       const h = canvas.height;
       if (drawn.img === img && drawn.w === w && drawn.h === h && !debug) return;
       ctx.drawImage(img, 0, 0, w, h);
-      if (debug) {
-        ctx.strokeStyle = '#44e2cd';
-        ctx.lineWidth = 2;
-        const fx = faceCenter.x * w;
-        const fy = faceCenter.y * h;
-        ctx.beginPath();
-        ctx.moveTo(fx - 12, fy);
-        ctx.lineTo(fx + 12, fy);
-        ctx.moveTo(fx, fy - 12);
-        ctx.lineTo(fx, fy + 12);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(fx, fy, config.deadzone * h, 0, Math.PI * 2);
-        ctx.stroke();
-      }
+      if (debug) drawDebug(w, h, label);
       drawn = { img, w, h };
       canvas.dataset.frame = label;
+    };
+
+    // Debug overlay: face centre, deadzone ring, current angle and frame index.
+    const drawDebug = (w, h, label) => {
+      const fx = faceCenter.x * w;
+      const fy = faceCenter.y * h;
+      const unit = w / 720; // scale overlay with the canvas
+      ctx.strokeStyle = '#44e2cd';
+      ctx.fillStyle = '#44e2cd';
+      ctx.lineWidth = 2 * unit;
+      ctx.beginPath();
+      ctx.moveTo(fx - 12 * unit, fy);
+      ctx.lineTo(fx + 12 * unit, fy);
+      ctx.moveTo(fx, fy - 12 * unit);
+      ctx.lineTo(fx, fy + 12 * unit);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(fx, fy, config.deadzone * h, 0, Math.PI * 2);
+      ctx.stroke();
+
+      const deg = ((angle * 180) / Math.PI).toFixed(1);
+      const text = `angle ${angleInit ? deg : '--'}\u00b0  frame ${label}`;
+      ctx.font = `${14 * unit}px ui-monospace, Menlo, monospace`;
+      const pad = 8 * unit;
+      const tw = ctx.measureText(text).width;
+      ctx.fillStyle = 'rgba(0,0,0,0.6)';
+      ctx.fillRect(pad, pad, tw + pad * 2, 14 * unit + pad * 1.5);
+      ctx.fillStyle = '#44e2cd';
+      ctx.textBaseline = 'top';
+      ctx.fillText(text, pad * 2, pad * 1.5);
     };
 
     const render = () => {
@@ -95,6 +111,7 @@ export default function CursorCharacter({
       if (canvas.width !== w || canvas.height !== h) {
         canvas.width = w; // resets the bitmap, so force a redraw
         canvas.height = h;
+        ctx.imageSmoothingQuality = 'high'; // reset along with the bitmap
         drawn = { img: null, w: 0, h: 0 };
       }
       render();

@@ -94,3 +94,9 @@ body {
 .depth-shadow {
     box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.05);
 }
+
+/* Clip (not scroll) horizontal overflow from decorative/legacy elements so the
+   layout viewport never widens on mobile. No visual change: body already hid it. */
+#root {
+    overflow-x: clip;
+}
