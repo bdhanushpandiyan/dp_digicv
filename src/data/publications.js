@@ -11,7 +11,7 @@ export const publicationGroups = [
   {
     id: 'publications',
     heading: 'Publications',
-    emptyNote: 'No verified publication entries supplied in current CV.',
+    emptyNote: 'No publications listed',
     entries: [],
   },
   {

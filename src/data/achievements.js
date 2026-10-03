@@ -1,4 +1,5 @@
-// Achievements, as listed in the CV. No rankings or interpretations added.
+// Achievements and extracurricular items, as listed in the CV. No rankings or
+// interpretations added. The SRM oral presentation lives in publications.js only.
 //
 // Shape: { id, title, details: [{ label, value }] }
 export const achievements = [
@@ -24,10 +25,5 @@ export const achievements = [
     id: 'convocation-volunteer',
     title: 'Volunteered for the university convocation at SRIHER',
     details: [],
-  },
-  {
-    id: 'oral-presentation-srm',
-    title: 'Oral presentation, International Conference on Emerging Concepts in Biotechnology',
-    details: [{ label: 'Venue', value: 'SRM University' }],
   },
 ];

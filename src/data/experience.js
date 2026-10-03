@@ -24,8 +24,8 @@ export const experience = [
       { label: 'Project', value: 'CMRG, DoT, Chennai' },
       { label: 'Project duration', value: '3-year project' },
     ],
-    // The CV does not list responsibilities for this role.
-    responsibilities: [{ text: 'Responsibilities to be added.', placeholder: true }],
+    // The CV lists no responsibilities for this role, so none are shown.
+    responsibilities: [],
     achievements: [],
   },
   {

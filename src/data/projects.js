@@ -40,8 +40,7 @@ export const projects = [
   {
     id: 'instant-ferment-probiotic-yukti',
     title: 'Instant Ferment Probiotic Product Development (Yukti)',
-    // The CV text supplied for this project has no description.
-    description: { text: 'Project description to be added.', placeholder: true },
+    // No description is listed in the CV for this project, so none is shown.
     areaId: 'microbiology',
     areaLabel: 'Microbiology / Probiotic Product Development',
     supervisor: 'Dr M. Rama Prabha',
