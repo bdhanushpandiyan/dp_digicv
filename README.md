@@ -8,10 +8,22 @@ Welcome to the source code for my digital Curriculum Vitae and professional port
 
 ## 🛠️ Built With
 
-* **HTML5** & **Vanilla CSS**: For semantic structure and custom dynamic styling.
-* **Tailwind CSS (via CDN)**: For rapid utility-based styling and a highly maintainable design system.
-* **Vanilla JavaScript**: For smooth interactions, scroll reveals, and custom Web Audio API sound profiles.
-* **Google Fonts**: Utilizing *Space Grotesk* for technical headings and *Inter* for highly readable body text.
+* **Vite** + **React** (JavaScript)
+* **Tailwind CSS 3** (compiled via PostCSS; theme tokens live in `tailwind.config.js`)
+* **HTML5 Canvas** + `requestAnimationFrame` for the cursor-tracking character (`src/components/CursorCharacter.jsx`)
+* **Vanilla Web Audio API** for interaction sounds (`src/lib/sound.js`)
+* **Google Fonts**: *Space Grotesk*, *Inter* and Material Symbols
+
+## 💻 Development
+
+```bash
+npm install
+npm run dev      # start the dev server
+npm run build    # production build into dist/
+npm run preview  # serve the production build
+```
+
+Append `?debug` to the URL to overlay the face centre and deadzone on the character.
 
 ## ✨ Key Features
 
