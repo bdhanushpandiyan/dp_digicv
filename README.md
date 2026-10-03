@@ -8,11 +8,10 @@ Welcome to the source code for my digital Curriculum Vitae and professional port
 
 ## 🛠️ Built With
 
-* **Vite** + **React** (JavaScript)
-* **Tailwind CSS 3** (compiled via PostCSS; theme tokens live in `tailwind.config.js`)
-* **HTML5 Canvas** + `requestAnimationFrame` for the cursor-tracking character (`src/components/CursorCharacter.jsx`)
-* **Vanilla Web Audio API** for interaction sounds (`src/lib/sound.js`)
-* **Google Fonts**: *Space Grotesk*, *Inter* and Material Symbols
+* **Vite** + **React** (JavaScript), plain CSS with design tokens (`src/styles/tokens.css`)
+* **HTML5 Canvas** + `requestAnimationFrame` for the cursor-tracking character (`src/components/CursorCharacter/`)
+* **Google Fonts**: *Space Grotesk*, *Inter* and *IBM Plex Mono*
+* Tailwind CSS 3 is still installed for the previous implementation (see "Legacy" below)
 
 ## 💻 Development
 
@@ -23,7 +22,26 @@ npm run build    # production build into dist/
 npm run preview  # serve the production build
 ```
 
-Append `?debug` to the URL to overlay the face centre and deadzone on the character.
+URL flags: `?debug` overlays the character's face centre, deadzone, angle and frame index. `?legacy` shows the previous single-page implementation (kept until the new structure is approved).
+
+## ✏️ Editing content
+
+All CV content lives in `src/data/` and is separate from the UI components:
+
+| File | Controls |
+| --- | --- |
+| `profile.js` | name, title, hero copy, about, contact links, CV file, navigation, section headings |
+| `research.js` | research areas |
+| `projects.js` | project cards |
+| `experience.js` | experience timeline |
+| `publications.js` | publications and presentations |
+| `skills.js` | skill categories |
+
+Entries marked `placeholder: true` render with a "Placeholder" tag and dashed outline. Replace the text and delete the flag, or set `site.showPlaceholderMarkers` to `false` in `profile.js` to hide every tag at once.
+
+## 🗂️ Legacy
+
+The previous implementation lives in `src/legacy/` with its styles in `src/styles/legacy.css`. It is only loaded for `?legacy` and can be deleted, together with Tailwind, once the redesign is approved.
 
 ## ✨ Key Features
 

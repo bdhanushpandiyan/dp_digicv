@@ -1,0 +1,191 @@
+/* Hero: text column + character stage. Mobile stacks the stage first. */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding-top: var(--header-h);
+  scroll-margin-top: 0;
+}
+
+.hero__stage {
+  position: relative;
+  order: -1;
+  display: flex;
+  align-items: flex-end;
+  /* Horizontal red profile sampled from the top row of the frames (41 stops,
+     identical across all 64 frames), so any stage height above the canvas
+     blends into the image edge without a seam. */
+  background: linear-gradient(
+    90deg,
+    #a61e1b 1.22%,
+    #b12421 3.66%,
+    #b92825 6.10%,
+    #bd2c27 8.54%,
+    #c22e2a 10.98%,
+    #c4302b 13.41%,
+    #c6312c 15.85%,
+    #c9342d 18.29%,
+    #ca352f 20.73%,
+    #cc3831 23.17%,
+    #cf3932 25.61%,
+    #d03a32 28.05%,
+    #d03b34 30.49%,
+    #d23d37 32.93%,
+    #d43e36 35.37%,
+    #d33f35 37.80%,
+    #d44037 40.24%,
+    #d33f34 42.68%,
+    #d33f34 45.12%,
+    #d33e33 47.56%,
+    #d43e33 50.00%,
+    #d33f33 52.44%,
+    #d33e35 54.88%,
+    #d44037 57.32%,
+    #d33f36 59.76%,
+    #d43e36 62.20%,
+    #d43d33 64.63%,
+    #d13a33 67.07%,
+    #d03932 69.51%,
+    #d03931 71.95%,
+    #ce3731 74.39%,
+    #cc342f 76.83%,
+    #c8322c 79.27%,
+    #c8312b 81.71%,
+    #c52f2b 84.15%,
+    #c22d28 86.59%,
+    #bf2b27 89.02%,
+    #bd2927 91.46%,
+    #ba2725 93.90%,
+    #b32523 96.34%,
+    #ac211e 98.78%
+  );
+}
+
+.hero__stage > :first-child {
+  width: 100%;
+}
+
+.hero__caption {
+  position: absolute;
+  left: var(--gutter);
+  top: 18px;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.96);
+  /* Only meaningful when a pointer can hover. */
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero__caption {
+    display: block;
+  }
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(36px, 7vw, 56px) var(--gutter) clamp(48px, 8vw, 72px);
+}
+
+.site .hero__name {
+  margin-top: 24px;
+  font-size: clamp(2.5rem, 11vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  overflow-wrap: break-word;
+}
+
+.hero__name span {
+  display: block;
+}
+
+.hero__title {
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+.hero__statement {
+  max-width: 44ch;
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 1.0625rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+/* Entrance: one short staggered fade for the hero copy only. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__enter {
+    animation: hero-enter 0.8s var(--ease) both;
+  }
+
+  .hero__name {
+    animation-delay: 0.08s;
+  }
+
+  .hero__title {
+    animation-delay: 0.16s;
+  }
+
+  .hero__statement {
+    animation-delay: 0.24s;
+  }
+
+  .hero__actions {
+    animation-delay: 0.32s;
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@media (min-width: 640px) {
+  .site .hero__name {
+    font-size: clamp(3rem, 8vw, 4rem);
+  }
+}
+
+/* Desktop: text left, character stage flush right. */
+@media (min-width: 1024px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 58vw);
+  }
+
+  .hero__stage {
+    order: 0;
+  }
+
+  .hero__text {
+    align-self: center;
+    /* Aligns with the section container's left edge on wide screens. */
+    padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+    padding-right: clamp(24px, 3vw, 48px);
+    padding-block: clamp(56px, 6vw, 88px);
+  }
+
+  .site .hero__name {
+    font-size: clamp(2.5rem, 3.6vw, 3.5rem);
+  }
+
+  .hero__caption {
+    top: 22px;
+  }
+}

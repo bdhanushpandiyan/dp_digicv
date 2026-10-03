@@ -1,0 +1,54 @@
+.pubs {
+  border-top: 1px solid var(--line-strong);
+}
+
+.pubs__item {
+  display: grid;
+  gap: 10px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pubs__year {
+  color: var(--accent);
+}
+
+.site .pubs__title {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  max-width: 48ch;
+}
+
+.pubs__authors {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: var(--fs-small);
+}
+
+.pubs__venue {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  font-style: italic;
+}
+
+.pubs__link {
+  margin-top: 12px;
+  word-break: break-all;
+}
+
+.pubs__type {
+  justify-self: start;
+}
+
+@media (min-width: 768px) {
+  .pubs__item {
+    grid-template-columns: 96px minmax(0, 1fr) auto;
+    column-gap: 32px;
+    align-items: start;
+  }
+
+  .pubs__type {
+    justify-self: end;
+  }
+}

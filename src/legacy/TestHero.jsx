@@ -1,4 +1,4 @@
-import CursorCharacter from './CursorCharacter.jsx';
+import CursorCharacter from '../components/CursorCharacter/CursorCharacter.jsx';
 import { characterRed } from '../data/characterConfig.js';
 
 // TEMPORARY hero used only to verify the cursor-tracking character.

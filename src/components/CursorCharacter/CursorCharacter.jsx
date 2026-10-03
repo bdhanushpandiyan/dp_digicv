@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react';
-import { characterConfig } from '../data/characterConfig.js';
-import { useCharacterFrames } from '../hooks/useCharacterFrames.js';
-import { useHasFinePointer, usePrefersReducedMotion } from '../hooks/useMediaQuery.js';
+import { characterConfig } from '../../data/characterConfig.js';
+import { useCharacterFrames } from '../../hooks/useCharacterFrames.js';
+import { useHasFinePointer, usePrefersReducedMotion } from '../../hooks/useMediaQuery.js';
 import {
   angleToFramePosition,
   circularFrameDistance,
   directionAngle,
   shortestAngleDelta,
   wrapAngle,
-} from '../lib/angle.js';
+} from '../../lib/angle.js';
 
 /**
  * A stationary character whose head follows the cursor.

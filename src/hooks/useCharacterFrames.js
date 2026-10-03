@@ -11,7 +11,15 @@ import { characterConfig } from '../data/characterConfig.js';
 let centerPromise = null;
 let framesPromise = null;
 
-function loadImage(src) {
+function loadImage(src, retries = 2) {
+  return fetchBitmap(src).catch((err) => {
+    if (retries <= 0) throw err;
+    // One flaky request among 65 shouldn't take the whole character down.
+    return new Promise((resolve) => setTimeout(resolve, 250)).then(() => loadImage(src, retries - 1));
+  });
+}
+
+function fetchBitmap(src) {
   return fetch(src)
     .then((res) => {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);

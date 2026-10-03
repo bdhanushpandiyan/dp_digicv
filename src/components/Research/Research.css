@@ -1,0 +1,56 @@
+.research {
+  display: grid;
+  gap: 0 clamp(32px, 5vw, 72px);
+}
+
+.research__item {
+  position: relative;
+  padding: 28px 0 40px;
+  border-top: 1px solid var(--line-strong);
+}
+
+/* Accent rule grows in on hover/focus: the only decoration on these items. */
+.research__item::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 56px;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.45s var(--ease);
+}
+
+.research__item:hover::before,
+.research__item:focus-within::before {
+  width: 100%;
+}
+
+.research__index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.site .research__title {
+  margin-top: 20px;
+  font-size: var(--fs-h3);
+  max-width: 22ch;
+}
+
+.research__summary {
+  margin-top: 16px;
+  max-width: 52ch;
+  color: var(--text-muted);
+}
+
+.research__keywords {
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .research {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
