@@ -87,10 +87,10 @@ export const profile = {
     summary: {
       text: 'MSc Biotechnology (SRIHER, 2024–2026) · BSc Botany (Thiagarajar College, 2021–2024) · Research Assistant, Periyar University (from August 2026).',
     },
-    // The CV PDF has not been supplied. When it is, put it in public/cv/ and set the
-    // path here, e.g. 'cv/Dhanush-Pandiyan-B-CV.pdf' (or a full https:// URL). The
-    // button then becomes "Download CV" by itself.
-    pdfUrl: null,
+    // Same-site path to the PDF in public/cv/ (resolved against the site's base path,
+    // so it works at the domain root and on a GitHub Pages project sub-path). A full
+    // https:// URL also works. Set to null to show the disabled button instead.
+    pdfUrl: 'cv/Dhanush_Pandiyan_CV.pdf',
     // Optional hosted/online version of the CV.
     viewUrl: null,
   },
